@@ -7,6 +7,8 @@
         <th scope="col">Book Name</th>
         <th scope="col">Publish Year</th>
         <th scope="col">Avability</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
       </tr>
     </thead>
     <tbody>
@@ -15,7 +17,8 @@
         <td>{{book.year}}</td>
         <td *ngIf="book.availability">Available</td>
         <td *ngIf="!book.availability">Not Available</td>
-        <td><button (click)="deleteBook(book.id)">Delete</button></td>
+        <td><button (click)="deleteBook(book)">Delete</button></td>
+        <td><button (click)="updateBook(book)">Update</button></td>
       </tr>
 
     </tbody>

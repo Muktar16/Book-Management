@@ -13,9 +13,24 @@ export class BookService {
   {id:5,name:"Database Management system Concept",year:2004,availability:true},
   {id:6,name:"Data Mining",year:2003,availability:false}]
 
+  bookToBeUpdated = new Book();
   constructor() { }
+
+  
 
   getBooks(): Book[]{
     return this.books;
   }
+  deleteBook(givenBook:Book):Book[]{
+    return this.books = this.books.filter(book => givenBook.id != book.id);
+  }
+
+  setBookToBeUpdated(givenBook:Book){
+    this.bookToBeUpdated = givenBook;
+  }
+
+  getBookToBeUpdated(){
+    return this.bookToBeUpdated;
+  }
+  
 }
