@@ -14,6 +14,8 @@ export class BookService {
   {id:6,name:"Data Mining",year:2003,availability:false}]
 
   bookToBeUpdated = new Book();
+  bookToBeUpdatedIndex:any;
+  bookToBeAdded = new Book();
   constructor() { }
 
   
@@ -25,12 +27,25 @@ export class BookService {
     return this.books = this.books.filter(book => givenBook.id != book.id);
   }
 
-  setBookToBeUpdated(givenBook:Book){
+  setBookToBeUpdated(givenBook:Book,index:number){
     this.bookToBeUpdated = givenBook;
+    this.bookToBeUpdatedIndex = index;
+  }
+
+  updateBook(givenBook:Book){
+    this.books.splice(this.bookToBeUpdatedIndex,1,givenBook);
   }
 
   getBookToBeUpdated(){
     return this.bookToBeUpdated;
+  }
+
+  getBookToBeAdded(){
+    return this.bookToBeAdded;
+  }
+
+  addBook(givenBook:Book){
+    this.books.push(givenBook);
   }
   
 }

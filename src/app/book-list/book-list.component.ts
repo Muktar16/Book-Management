@@ -18,10 +18,14 @@ export class BookListComponent implements OnInit {
     this.books = this.bookService.deleteBook(book);
   }
 
-  updateBook(book:Book){
+  updateBook(book:Book,index:number){
     console.log(book);
-    this.bookService.setBookToBeUpdated(book);
+    this.bookService.setBookToBeUpdated(book,index);
     this.router.navigate(['updateBook'])
+  }
+
+  addBook(){
+    this.router.navigate(['addBook']);
   }
 
   ngOnInit(): void {
