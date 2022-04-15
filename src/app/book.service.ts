@@ -15,7 +15,6 @@ export class BookService {
 
   bookToBeUpdated = new Book();
   bookToBeUpdatedIndex:any;
-  bookToBeAdded = new Book();
   constructor() { }
 
   
@@ -23,6 +22,7 @@ export class BookService {
   getBooks(): Book[]{
     return this.books;
   }
+  
   deleteBook(givenBook:Book):Book[]{
     return this.books = this.books.filter(book => givenBook.id != book.id);
   }
@@ -37,11 +37,7 @@ export class BookService {
   }
 
   getBookToBeUpdated(){
-    return this.bookToBeUpdated;
-  }
-
-  getBookToBeAdded(){
-    return this.bookToBeAdded;
+    return JSON.parse(JSON.stringify(this.bookToBeUpdated));
   }
 
   addBook(givenBook:Book){

@@ -12,7 +12,7 @@ export class AddBookComponent implements OnInit {
 
   constructor(private bookService:BookService, private router: Router) { }
 
-  bookToBeAdded = this.bookService.getBookToBeAdded();
+  bookToBeAdded = new Book();
 
   addBook(){
     this.bookService.addBook(this.bookToBeAdded);
